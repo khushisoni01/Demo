@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.center {
+  text-align: center;
+}
+ .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: blue;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+</style>
+</head>
+<body>
+<div class="center">
+        <div style="width: 60%; height: 60px; background: white;"> 
+        </div>
+<div class="center">
+        <div style="margin: auto; width: 60%; height: 400px; float: left; background: white;">
+        </div>
+        <div style="margin-left: 30%; width: 60%; height: 400px; background: white;">
+         <h6>Sign up Today</h6>
+<!-- <button type="button" onclick="alert('Hello world!')">Sign Up</button>  -->
+          <%= link_to "SIGN UP",  new_account_registration_path , class: "button" %>
+          <%= link_to "SIGN IN",  new_account_session_path , class: "button" %>
+          <%#= link_to "SIGN OUT", destroy_account_session_path , turbo_method: :delete,class: "button" %>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
