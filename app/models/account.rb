@@ -1,7 +1,13 @@
  class Account < ApplicationRecord
 
+  has_many :posts
+
   enum role: {basic_account: 0, business_account: 1}
-  before_save :set_default_role, if: :new_record?
+
+  validates :role, inclusion: { in: roles.keys }
+
+
+
   # after_initialize :set_default_role, if: :new_record?
 
 
@@ -13,9 +19,9 @@
   # 	self.role ||= :business_account unless self.role == "basic_account" 
   # end
 
-  def set_default_role
-  	self.role ||= :business_account
-  end
+  # def set_default_role
+  # 	self.role ||= :business_account
+  # end
 
 #   def set_default_role
 #   if self.role == "basic_account"
