@@ -1,2 +1,18 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<h1>Edit Post</h1>
+
+<%= form_with(model: @post, local: true) do |form| %>
+  <%= form.label :image %>
+  <%= form.file_field :image %>
+
+  <%= form.label :tag_people %>
+  <%= form.text_field :tag_people %>
+
+  <%= form.label :description %>
+  <%= form.text_area :description %>
+
+  <%= form.submit 'Update Post' %>
+<% end %>
+
+<p><%= link_to 'Show', @post %></p>
+<p><%= link_to 'Back to All Posts', posts_path %></p>
+<p><%= link_to 'Back to My Account', root_path %></p>

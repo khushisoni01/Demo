@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    if current_account.role == "basic_account"
+      render partial: 'basic'
+    else
+      render partial: 'business'
+    end
   end
 
   def new
@@ -44,6 +48,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :tag_people, :description)
+    params.require(:post).permit(:tag_people, :description)
   end
 end
