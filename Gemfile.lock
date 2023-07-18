@@ -109,6 +109,7 @@ GEM
       warden (~> 1.2.3)
     erubi (1.12.0)
     ffi (1.15.5)
+    ffi (1.15.5-x64-mingw-ucrt)
     ffi (1.15.5-x64-mingw32)
     formtastic (4.0.0)
       actionpack (>= 5.2.0)
@@ -174,6 +175,8 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.9)
+    nokogiri (1.15.3-x64-mingw-ucrt)
+      racc (~> 1.4)
     nokogiri (1.15.3-x64-mingw32)
       racc (~> 1.4)
     nokogiri (1.15.3-x86_64-linux)
@@ -243,6 +246,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    sqlite3 (1.6.3-x64-mingw-ucrt)
     sqlite3 (1.6.3-x64-mingw32)
     sqlite3 (1.6.3-x86_64-linux)
     stimulus-rails (1.2.1)
@@ -277,6 +281,7 @@ GEM
     zeitwerk (2.6.8)
 
 PLATFORMS
+  x64-mingw-ucrt
   x64-mingw32
   x86_64-linux
 
@@ -302,7 +307,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 3.0.6p216
+   ruby 3.1.4p223
 
 BUNDLED WITH
    2.4.13

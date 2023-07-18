@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   root 'pages#home'
   resources :pages
   devise_for :accounts, controllers: {registrations: 'registrations'}
-  get '/posts/basic_account', to: 'posts#basic_account', as: 'basic_account'
-  get '/posts/business_account', to: 'posts#business_account', as: 'business_account'
+  # get '/posts/basic_account', to: 'posts#basic', as: 'basic'
+  # get '/posts/business_account', to: 'posts#business', as: 'business'
 end
