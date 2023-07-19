@@ -1,0 +1,17 @@
+<h1>My Posts</h1>
+<%= link_to 'New Post', new_post_path %>
+<% @posts.each do |post| %>
+<% if post.account.id == current_account.id %>
+  <div>
+    <p>Created At: <%= post.created_at %></p>
+    <p>Updated At: <%= post.updated_at %></p>
+    <% post.pictures.each do |pic| %>
+      <%= image_tag(pic, size: "200x300") %>
+    <% end %>
+    <%= link_to 'Show', post_path(post) %></p>
+    <%= link_to 'Edit', edit_post_path(post) %></p>
+    <%= link_to 'Delete', post_path(post), data: { turbo_method: :delete,turbo_confirm: 'Are you sure you want to delete this post?' } %></p>
+  </div>
+  <% end %>
+<% end %>
+

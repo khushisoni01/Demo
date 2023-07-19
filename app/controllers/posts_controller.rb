@@ -43,12 +43,18 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    end
+  end
 
 
   def edit
     @post = Post.find(params[:id])
   end
+
+
+  def mypost
+    @posts = current_account.posts
+  end
+
 
   def update
     @post = Post.find(params[:id])
@@ -69,6 +75,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:tag_people, :description, :image, pictures: [])
+    params.require(:post).permit(:description, :image, pictures: [])
   end
 end
