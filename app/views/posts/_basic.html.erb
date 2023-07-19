@@ -1,1 +1,12 @@
-<h1> Khushi </h1>
+<h1> Instagram </h1>
+<%= link_to 'New Post', new_post_path %>
+<% @posts.each do |post| %>
+	<div>
+	<p>Tagged People: <%= post.tag_people %></p>
+    <p>Created At: <%= post.created_at %></p>
+    <p>Updated At: <%= post.updated_at %></p>
+    <% if post.image.present? %>
+      <p>Image: <%= image_tag url_for(post.image), style: "object-fit: cover; width: 200px; height: 600px;" %></p>
+    <% end %>
+<% end %>
+    </div>

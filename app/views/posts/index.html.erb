@@ -3,7 +3,7 @@
 <% @posts.each do |post| %>
   <div>
     <h2><%#= post.description %></h2>
-     <%# if post.image.present? %>
+     <% if post.image.present? %>
       <%#= image_tag post.image, alt: 'Post Image' %>
     <%# end %> 
     <p>Tagged People: <%= post.tag_people %></p>
