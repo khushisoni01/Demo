@@ -1,4 +1,4 @@
-
+<!-- 
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,13 +26,81 @@
         <div style="margin-left: 30%; width: 60%; height: 400px; background: white;">
          <h6>Sign up Today</h6>
 <!-- <button type="button" onclick="alert('Hello world!')">Sign Up</button>  -->
-          <%= link_to "SIGN UP",  new_account_registration_path , class: "button" %>
-          <%= link_to "SIGN IN",  new_account_session_path , class: "button" %>
-          <%#= link_to "SIGN OUT", destroy_account_session_path , turbo_method: :delete,class: "button" %>
-        </div>
-    </div>
+          
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-image: url("<%= asset_path('background.png') %>");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  padding: 20px;
+  text-align: center;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: darkpink;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* Custom styles for Active Admin button */
+.button.button--secondary {
+  background-color: darkpink;
+  color: white;
+  border-radius: 20px; /* Adjust the value as needed to achieve the desired roundness */
+  padding: 10px 20px;
+}
+
+.button.button--secondary:hover {
+  background-color: lightpink;
+  color: black;
+}
+
+.button.button--secondary:active {
+  background-color: pink;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+  <%= link_to "SIGN UP", new_account_registration_path, class: "button button--secondary" %>
+  <%= link_to "SIGN IN", new_account_session_path, class: "button button--secondary"  %>
+</div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

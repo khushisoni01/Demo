@@ -1,12 +1,105 @@
-<h1> Instagram </h1>
-<%= link_to 'New Post', new_post_path %>
-<%= link_to 'View My Posts',new_post_myposts_url %>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.container {
+  width: 60%;
+  margin: auto;
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+
+.navbar a:first-child {
+  margin-left: 0;
+}
+
+.navbar a:hover {
+  background-color: darkpink;
+}
+
+.post {
+  margin-bottom: 20px;
+}
+
+.post p {
+  margin: 5px 0;
+}
+
+.post img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.search-input {
+  padding: 8px;
+  border-radius: 4px;
+  border: none;
+  font-size: 16px;
+  background-color: black;
+  color: white;
+  margin-right: 3px;
+}
+
+.search-button {
+  padding: 8px 16px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="navbar">
+    <%= link_to 'New Post', new_post_path, class: 'button' %>
+    <%= link_to 'View My Posts', new_post_myposts_url, class: 'button' %>
+    <%= link_to 'Message', posts_path, class: 'button' %>
+    <div class="search-bar">
+    <input type="text" class="search-input">
+    <button class="search-button">Search</button>
+  </div>
+  </div>
+
+  <h1><em>Insta-Commerce</em></h1>
+
   <% @posts.each do |post| %>
-  	<div>
+    <div class="post">
       <p>Created At: <%= post.created_at %></p>
       <p>Updated At: <%= post.updated_at %></p>
       <% post.pictures.each do |pics| %>
-      <%= image_tag(pics, size: "200x300") %>
-     	<% end %>
+        <%= image_tag(pics, size: "200x300") %>
+      <% end %>
+    </div>
   <% end %>
 </div>
+</body>
+</html>
+
+
+
