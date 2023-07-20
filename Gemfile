@@ -2,10 +2,11 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.6"
-
-  
+ 
 gem "activeadmin"
 gem "sassc"
+
+gem 'followability', github: 'nejdetkadir/followability', branch: 'main'
 
 gem 'byebug'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

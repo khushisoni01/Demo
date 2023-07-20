@@ -1,15 +1,10 @@
 <h1><%= @post.description %></h1>
-
-<%# if @post.image.present? %>
-  <%#= image_tag @post.image, alt: 'Post Image' %>
-<%# end %>
-
-<p>Tagged People: <%= @post.tag_people %></p>
-<p>Created At: <%= @post.created_at %></p>
-<p>Updated At: <%= @post.updated_at %></p>
-
+<p><%= @post.account.name %></p>
+  <% if current_account.following?(@post.account) %>
+    <%= button_to 'Unfollow', unfollow_path(@post.account.id) %>
+  <% else %>
+    <%= button_to 'Follow', follow_path(@post.account.id) %>
+  <% end %>
 <p><%= link_to 'Edit', edit_post_path(@post) %></p>
 <p><%= link_to 'Back to All Posts', posts_path %></p>
 <p><%= link_to 'Back to My Account', root_path %></p>
-
-

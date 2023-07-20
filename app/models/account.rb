@@ -2,11 +2,17 @@
 
   has_many :posts
 
+  followability
+
   enum role: {basic_account: 0, business_account: 1}
 
   validates :role, inclusion: { in: roles.keys }
 
 
+
+  def unfollow(account)
+    followerable_relationships.where(followable_id: account.id).destroy_all
+  end
 
   # after_initialize :set_default_role, if: :new_record?
 
