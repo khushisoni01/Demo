@@ -5,7 +5,7 @@ ruby "3.0.6"
  
 gem "activeadmin"
 gem "sassc"
-
+gem 'acts_as_votable'
 gem 'followability', github: 'nejdetkadir/followability', branch: 'main'
 
 gem 'byebug'

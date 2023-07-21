@@ -4,6 +4,8 @@
 
   followability
 
+  acts_as_voter
+
   enum role: {basic_account: 0, business_account: 1}
 
   validates :role, inclusion: { in: roles.keys }

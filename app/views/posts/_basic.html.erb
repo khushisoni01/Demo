@@ -86,22 +86,30 @@
 </head>
 <body>
 <div class="navbar">
+  <% if current_account.business_account? %>
+    <%= link_to 'Add Product', posts_path, class: 'button button-small' %>
+  <% else %>
+    <%= link_to 'Buy Product', posts_path, class: 'button button-small' %>
+  <% end %>
   <%= link_to 'New Post', new_post_path, class: 'button button-small' %>
   <%= link_to 'View My Posts', new_post_myposts_url, class: 'button button-small' %>
+  <%= button_to "Sign Out", destroy_account_session_path, method: :delete %>
   <%= link_to 'Message', posts_path, class: 'button button-small' %>
-  <div class="search-bar">
-    <input type="text" class="search-input">
-    <button class="search-button">Search</button>
-  </div>
 </div>
-
+ 
 <div class="container">
   <h1><em>Insta-Commerce</em></h1>
-
   <% @posts.each do |post| %>
     <div class="post">
       <p>Name: <%= post.account.name %></p>
       <p>Email: <%= post.account.email %></p>
+      <p>Likes: <%= post.get_likes.size %></p>
+      <% if current_account.voted_down_on?(post) %>
+        <%= button_to 'Like', like_path(post) %>
+      <% else %>
+      <%= button_to 'Disike', dislike_path(post) %>
+      <% end %>
+
       <% post.pictures.each do |pics| %>
         <%= image_tag(pics, size: "200x300") %>
       <% end %><br>

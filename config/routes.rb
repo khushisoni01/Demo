@@ -15,5 +15,7 @@ Rails.application.routes.draw do
   end
   
   get 'new_post/myposts', to: 'posts#mypost'
+  post 'posts/:id/upvote', to: "posts#upvote", as: "like"
+  post 'posts/:id/downvote', to: "posts#downvote", as: "dislike"
   resources :posts
 end

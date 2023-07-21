@@ -1,11 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @posts= Post.all
-    if current_account.role == "basic_account"
-      render partial: 'basic'
-    else
-      render partial: 'business'
-    end
+    @posts = Post.all.order(cached_votes_score: :desc)
+    render partial: 'basic'
   end
 
   def new
@@ -71,6 +67,33 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to posts_path, notice: 'Post was successfully destroyed.'
   end
+
+
+  def upvote
+    @post = Post.find(params[:id])
+    if current_account.voted_up_on? @post
+      @post.unvote_by current_account
+        redirect_to posts_path
+    else
+      @post.upvote_by current_account
+        redirect_to posts_path
+    end
+  end
+
+  def downvote
+    @post = Post.find(params[:id])
+    if current_account.voted_down_on? @post
+      @post.unvote_by current_account
+        redirect_to posts_path
+    else
+      @post.downvote_by current_account
+        redirect_to posts_path
+    end
+
+  end
+
+
+
 
   private
 
