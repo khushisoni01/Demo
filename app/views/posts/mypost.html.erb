@@ -2,80 +2,24 @@
 <html>
 <head>
 <style>
-
-
-.container {
-  position: relative; /* Add position relative to the container */
-}
-.account-name {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 10px;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.top-right-buttons {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 10px;
-}
-
-.top-right-buttons a {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #000; /* Change to dark black */
-  color: #fff; /* Change to white */
-  text-decoration: none;
-  border-radius: 0; /* Remove border radius to make it square */
-  margin-left: 10px;
-}
-
-.post {
-  margin-bottom: 20px;
-  border: 1px solid #ddd; /* Add a light gray border */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  padding: 10px; /* Add padding to the post container */
-}
-
-.post p {
-  margin: 5px 0;
-}
-
-.post img {
-  width: 200px;
-  height: 300px;
-  object-fit: cover;
-}
-
-.post-buttons {
-  display: flex;
-  justify-content: center;
-}
-
-.post-buttons a {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #000; /* Change to dark black */
-  color: #fff; /* Change to white */
-  text-decoration: none;
-  border-radius: 0; /* Remove border radius to make it square */
-  margin: 5px;
-}
+/* Your CSS styles here */
 </style>
 </head>
 <body>
 <div class="container">
- 
-  <div class="top-right-buttons">
-    <%= link_to 'New Post', new_post_path, class: 'button' %>
-    <%= link_to 'Settings and Privacy', posts_path, class: 'button' %>
-  </div>
-
+  <!-- ... -->
   <h1>My Posts</h1>
+  <h2>Followers:</h2>
+  <% followers = current_account.followers %>
+    <% followers.each do |follower| %>
+    <p>Name: <%= follower.name %></p>
+  <% end %>
+
+  <h2>Following:</h2>
+  <% following = current_account.following %>
+    <% following.each do |followed_account| %>
+    <p>Name: <%= followed_account.name %></p>
+  <% end %>
 
   <% @posts.each do |post| %>
     <% if post.account.id == current_account.id %>

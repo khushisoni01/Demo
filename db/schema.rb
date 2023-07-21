@@ -79,16 +79,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_095518) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.string "text"
-    t.integer "account_id", null: false
-    t.integer "post_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_comments_on_account_id"
-    t.index ["post_id"], name: "index_comments_on_post_id"
-  end
-
   create_table "followability_relationships", force: :cascade do |t|
     t.string "followerable_type", null: false
     t.integer "followerable_id", null: false
@@ -126,7 +116,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_095518) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "comments", "accounts"
-  add_foreign_key "comments", "posts"
   add_foreign_key "posts", "accounts"
 end

@@ -12,7 +12,7 @@ class RegistrationsController < Devise::RegistrationsController
         redirect_to post_path
     end
 
-
+    
     def unfollow
         @account = Account.find(params[:id])
         current_account.unfollow(@account)
@@ -30,7 +30,6 @@ class RegistrationsController < Devise::RegistrationsController
         current_account.remove_follow_request_for(@account)
         # redirect_to root_path
     end
-
 
     private
 
