@@ -6,6 +6,7 @@
     <% if product.picture.attached? %>
       <%= image_tag product.picture %>
     <% end %>
+    <%= link_to "Buy Product", new_order_path(product_id: product.id, account_id: product.account.id) %>
   <% end %>
 
 

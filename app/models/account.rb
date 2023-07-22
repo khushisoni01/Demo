@@ -2,6 +2,7 @@
 
   has_many :posts
   has_many :products
+  has_many :orders
 
   followability
 

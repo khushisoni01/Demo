@@ -1,0 +1,26 @@
+<h1>Place Order</h1>
+<p>Selected Product: <%= @product.name %></p>
+<p>Price: <%= @product.price %></p>
+<p>Description: <%= @product.description %></p>
+
+
+<%= form_with(model: @order, url: product_orders_path(@product)) do |form| %>
+  <div>
+    <%= form.label :product_name %>
+    <%= form.text_field :product_name %>
+  </div>
+
+  <div>
+    <%= form.label :price %>
+    <%= form.number_field :price %>
+  </div>
+
+  <div>
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <%= form.submit "Place Order" %>
+<% end %>
+<%= link_to 'Back to Products', products_path %>
+
