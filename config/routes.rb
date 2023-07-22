@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'new_product/myproducts', to: 'products#myproduct'
+  resources :products
   
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

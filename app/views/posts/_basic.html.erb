@@ -87,9 +87,9 @@
 <body>
 <div class="navbar">
   <% if current_account.business_account? %>
-    <%= link_to 'Add Product', posts_path, class: 'button button-small' %>
+    <%= link_to 'Add Product', new_product_myproducts_url, class: 'button button-small' %>
   <% else %>
-    <%= link_to 'Buy Product', posts_path, class: 'button button-small' %>
+    <%= link_to 'Buy Product', products_path, class: 'button button-small' %>
   <% end %>
   <%= link_to 'New Post', new_post_path, class: 'button button-small' %>
   <%= link_to 'View My Posts', new_post_myposts_url, class: 'button button-small' %>

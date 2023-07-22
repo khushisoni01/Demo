@@ -1,0 +1,19 @@
+ <h1>New Product</h1>
+
+  <%= form_with(model: @product, local: true) do |form| %>
+    <%= form.label "picture" %>
+    <%= form.file_field :picture %><br>
+
+    <%= form.label :description %>
+    <%= form.text_area :description %><br>
+
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+
+    <%= form.label :price %>
+    <%= form.number_field :price %>
+
+    <%= form.submit 'Create Product' %>
+  <% end %>
+
+  <p><%= link_to 'Back to All Posts', products_path %></p>

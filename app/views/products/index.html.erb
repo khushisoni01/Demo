@@ -1,0 +1,12 @@
+<h1>Products</h1>
+<% @products.each do |product| %>
+	<p>Account Name: <%=product.account.name %></p>
+    <p>Price: <%= product.price %></p>
+    <p>Description: <%= product.description %></p>
+    <% if product.picture.attached? %>
+      <%= image_tag product.picture %>
+    <% end %>
+  <% end %>
+
+
+
