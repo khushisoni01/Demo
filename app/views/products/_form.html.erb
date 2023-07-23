@@ -1,36 +1,123 @@
-<%= form_with(model: @product, local: true) do |form| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, 'error') %> prohibited this product from being saved:</h2>
-      <ul>
-        <% @product.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Product</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #4f4b4a; /* Light gray background */
+    }
 
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    .form-container {
+      max-width: 400px;
+      padding: 20px;
+      background-color: #fff; /* White background */
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #007bff; /* Blue heading color */
+    }
+
+    .form-container ul {
+      padding-left: 20px;
+    }
+
+    .form-container ul li {
+      list-style-type: disc;
+    }
+
+    .form-container label {
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: #333; /* Dark gray label color */
+    }
+
+    .form-container input[type="text"],
+    .form-container textarea,
+    .form-container input[type="number"],
+    .form-container input[type="file"],
+    .form-container input[type="submit"] {
+      padding: 8px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 100%;
+    }
+
+    .form-container input[type="file"] {
+      border: none;
+    }
+
+    .form-container textarea {
+      resize: vertical;
+    }
+
+    .form-container input[type="submit"] {
+      background-color: #007bff; /* Blue button color */
+      color: #fff;
+      cursor: pointer;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+  </style>
+
+  <div class="form-container">
+    <h1>Edit Product</h1>
+    <% if @product.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@product.errors.count, 'error') %> prohibited this product from being saved:</h2>
+        <ul>
+          <% @product.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form_with(model: @product, local: true) do |form| %>
+      <div>
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+      </div>
+
+      <div>
+        <%= form.label :price %>
+        <%= form.number_field :price %>
+      </div>
+
+      <div>
+        <%= form.label :picture %>
+        <%= form.file_field :picture %>
+      </div>
+
+      <div>
+        <%= form.label :description %>
+        <%= form.text_area :description %>
+      </div>
+
+      <div>
+        <%= form.submit %>
+      </div>
+    <% end %>
   </div>
 
-  <div>
-    <%= form.label :price %>
-    <%= form.number_field :price %>
-  </div>
-
-  <div>
-    <%= form.label :picture %>
-    <%= form.file_field :picture %>
-  </div>
-
-  <div>
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</body>
+</html>

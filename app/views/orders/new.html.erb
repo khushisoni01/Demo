@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Place Order</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #4f4b4a; /* Light gray background */
+    }
+
+    .form-container {
+      max-width: 400px;
+      padding: 20px;
+      background-color: #fff; /* White background */
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-container p {
+      margin-bottom: 10px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form label {
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    form input[type="text"],
+    form input[type="number"],
+    form input[type="submit"] {
+      padding: 8px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    form textarea {
+      padding: 8px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+
+    form input[type="submit"] {
+      background-color: #007bff; /* Blue button color */
+      color: #fff;
+      cursor: pointer;
+    }
+
+    form input[type="submit"]:hover {
+      background-color: #0056b3; /* Darker blue color on hover */
+    }
+
+    a.button {
+      display: inline-block;
+      background-color: #007bff; /* Blue button color */
+      color: #fff;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+
+    a.button:hover {
+      background-color: #0056b3; /* Darker blue color on hover */
+    }
+
+  </style>
+
+  <div class="form-container">
+    <h1>Place Order</h1>
+    <p>Selected Product: <%= @product.name %></p>
+    <p>Price: <%= @product.price %></p>
+    <p>Description: <%= @product.description %></p>
+
+    <%= form_with(model: @order, url: product_orders_path(@product)) do |form| %>
+      <div>
+        <%= form.label :product_name %>
+        <%= form.text_field :product_name %>
+      </div>
+
+      <div>
+        <%= form.label :price %>
+        <%= form.number_field :price %>
+      </div>
+
+      <div>
+        <%= form.label :address %>
+        <%= form.text_field :address %>
+      </div>
+
+      <%= form.submit "Place Order" %>
+    <% end %>
+
+    <%= link_to 'Back to Products', products_path, class: 'button' %>
+  </div>
+
+</body>
+</html>

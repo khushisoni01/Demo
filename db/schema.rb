@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_22_052333) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_22_123221) do
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -105,6 +105,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_052333) do
     t.index ["follower_type", "follower_id"], name: "index_follows_on_follower"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "product_name"
+    t.integer "price"
+    t.string "address"
+    t.integer "account_id", null: false
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_orders_on_account_id"
+    t.index ["product_id"], name: "index_orders_on_product_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "tag_people"
     t.text "description"
@@ -142,6 +154,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_052333) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "orders", "accounts"
+  add_foreign_key "orders", "products"
   add_foreign_key "posts", "accounts"
   add_foreign_key "products", "accounts"
 end
