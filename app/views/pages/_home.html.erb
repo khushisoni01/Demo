@@ -33,7 +33,7 @@
 
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 <style>
@@ -95,14 +95,142 @@ body {
   </div>
 </div>
 </body>
+</html> -->
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color:#362f2f ; /* Light gray background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0; /* Remove default margin to avoid spacing */
+}
+
+.container {
+  text-align: center;
+}
+
+.button-container {
+  background-color: #fff; /* White container background */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: gray; /* Gray button background */
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+/* Custom styles for Active Admin button */
+.button.button--secondary {
+  background-color: darkgray;
+  color: white;
+  border-radius: 20px; /* Adjust the value as needed to achieve the desired roundness */
+  padding: 10px 20px;
+}
+
+.button.button--secondary:hover {
+  background-color: lightgray;
+  color: black;
+}
+
+.button.button--secondary:active {
+  background-color: darkgray;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="button-container">
+    <%= link_to "SIGN UP", new_account_registration_path, class: "button button--secondary" %>
+    <%= link_to "SIGN IN", new_account_session_path, class: "button button--secondary"  %>
+  </div>
+</div>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: #362f2f; /* Light gray background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0; /* Remove default margin to avoid spacing */
+}
+
+.container {
+  text-align: center;
+}
+
+.button-container {
+  background-color: black; /* White container background */
+  border-radius: 10px;
+  padding: 40px; /* Increase padding to increase the size of the container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: gray; /* Gray button background */
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+/* Custom styles for Active Admin button */
+.button.button--secondary {
+  background-color: darkgray;
+  color: white;
+  border-radius: 20px; /* Adjust the value as needed to achieve the desired roundness */
+  padding: 10px 20px;
+}
+
+.button.button--secondary:hover {
+  background-color: lightgray;
+  color: black;
+}
+
+.button.button--secondary:active {
+  background-color: darkgray;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="button-container">
+    <h2>Instacommerce Login</h2> <!-- Display "Instacommerce Login" in the center -->
+    <%= link_to "SIGN UP", new_account_registration_path, class: "button button--secondary" %>
+    <%= link_to "SIGN IN", new_account_session_path, class: "button button--secondary"  %>
+  </div>
+</div>
+</body>
 </html>
-
-
-
-
-
-
-
 
 
 

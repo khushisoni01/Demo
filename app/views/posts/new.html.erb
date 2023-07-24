@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 <style>
@@ -74,6 +74,186 @@ body {
     <%= form.text_area :description %>
 
     <%= form.submit 'Create Post' %>
+  <% end %>
+
+  <p><%= link_to 'Back to All Posts', posts_path %></p>
+</div>
+</body>
+</html>
+ -->
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: #362f2f; /* Set the background color to #362f2f */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 35%; /* Adjust the width as needed */
+  margin: auto;
+  background-color: black; /* Set the background color of the form to black */
+  padding: 20px;
+  text-align: center;
+}
+
+.container h1 {
+  color: white; /* Set the heading color to white */
+  margin-bottom: 20px;
+}
+
+.container label,
+.container textarea {
+  color: white; /* Set the text color to white */
+}
+
+.container input[type="file"],
+.container textarea {
+  background-color: black; /* Set the background color of inputs and textarea to black */
+  color: white; /* Set the text color of inputs and textarea to white */
+  border: 1px solid white; /* Set the border color to white */
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.container input[type="submit"] {
+  display: block;
+  width: 100%;
+  background-color: black; /* Set the background color of the submit button to black */
+  color: white; /* Set the text color of the submit button to white */
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.container a {
+  color: white; /* Set the link color to white */
+  text-decoration: none;
+  display: block;
+}
+
+.container a:hover {
+  text-decoration: underline;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>New Post</h1>
+
+  <%= form_with(model: @post, local: true) do |form| %>
+    <%= form.label "pictures" %>
+    <%= form.file_field :pictures, multiple: true %><br>
+
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+
+    <%= form.submit 'Create Post' %>
+  <% end %>
+
+  <p><%= link_to 'Back to All Posts', posts_path %></p>
+</div>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: #362f2f; /* Set the background color to #362f2f */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 35%; /* Adjust the width as needed */
+  margin: auto;
+  background-color: black; /* Set the background color of the form to black */
+  padding: 20px;
+  text-align: center;
+}
+
+.container h1 {
+  color: white; /* Set the heading color to white */
+  margin-bottom: 20px;
+}
+
+.container label,
+.container textarea {
+  color: white; /* Set the text color to white */
+  display: inline-block; /* Make labels and textarea inline to control their width */
+  width: 100%; /* Set the width of labels and textarea to 100% */
+}
+
+.container input[type="file"],
+.container textarea {
+  background-color: black; /* Set the background color of inputs and textarea to black */
+  color: white; /* Set the text color of inputs and textarea to white */
+  border: 1px solid white; /* Set the border color to white */
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box; /* Include padding and border in the element's total width */
+}
+
+.container input[type="submit"] {
+  display: block;
+  width: 100%;
+  background-color: black; /* Set the background color of the submit button to black */
+  color: white; /* Set the text color of the submit button to white */
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.container a {
+  color: white; /* Set the link color to white */
+  text-decoration: none;
+  display: block;
+}
+
+.container a:hover {
+  text-decoration: underline;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>New Post</h1>
+
+  <%= form_with(model: @post, local: true) do |form| %>
+    <div class="field">
+      <%= form.label "pictures" %>
+      <%= form.file_field :pictures, multiple: true %><br>
+    </div>
+
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit 'Create Post' %>
+    </div>
   <% end %>
 
   <p><%= link_to 'Back to All Posts', posts_path %></p>
