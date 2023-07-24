@@ -3,6 +3,8 @@
   has_many :posts
   has_many :products
   has_many :orders
+  has_many :messages
+  
 
   followability
 
@@ -11,6 +13,12 @@
   enum role: {basic_account: 0, business_account: 1}
 
   validates :role, inclusion: { in: roles.keys }
+
+  after_create_commit { broadcast_append_to "accounts" }
+
+
+  validates_uniqueness_of :name
+  scope :all_except, ->(account) { where.not(id: account) }
 
 
 

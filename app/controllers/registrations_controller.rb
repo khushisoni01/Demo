@@ -1,7 +1,19 @@
 class RegistrationsController < Devise::RegistrationsController
 
     def show
+        byebug
         @account = Account.find(params[:id])
+        @current_account = current_account
+        @rooms = Room.public_rooms
+        @accounts = Account.all_except(@current_account)
+        @room = Room.new
+        @message = Message.new
+        @room_name = get_name(@account, @current_account)
+        @single_room = Room.where(name: @room_name).first || Room.create_private_room([@account, @current_account], @room_name)
+        @messages = @single_room.messages
+
+        render "rooms/index"
+
     end
 
     def follow
@@ -39,6 +51,12 @@ class RegistrationsController < Devise::RegistrationsController
 
     def account_update_params
         params.require(:account).permit(:name, :email, :password, :password_confirmation, :current_password, :role)
+    end
+
+
+    def get_name(user1, user2)
+        users = [user1, user2].sort
+        "private_#{users[0].id}_#{users[1].id}"
     end
 end
 

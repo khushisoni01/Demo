@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # get 'rooms/index'
   get 'new_product/myproducts', to: 'products#myproduct'
   resources :products do
     resources :orders
@@ -8,7 +9,14 @@ Rails.application.routes.draw do
   
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  root 'pages#home'
+  # root 'pages#home'
+  root 'rooms#index'
+
+  
+  # get "account/:id", to: "registrations#show", as: "account"
+  resources :rooms do
+    resources :messages
+  end
   resources :pages
   devise_for :accounts, controllers: {registrations: 'registrations'}
   # get '/posts/basic_account', to: 'posts#basic', as: 'basic'
@@ -18,6 +26,7 @@ Rails.application.routes.draw do
     post 'accounts/:id/unfollow', to: "registrations#unfollow", as: "unfollow"
     post 'accounts/:id/accept', to: "registrations#accept", as: "accept"
     post 'accounts/:id/cancel', to: "registrations#cancel", as: "cancel"
+    get 'accounts/:id', to: 'registrations#show', as: 'account'
   end
   
   get 'new_post/myposts', to: 'posts#mypost'
