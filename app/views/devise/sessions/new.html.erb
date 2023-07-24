@@ -3,18 +3,17 @@
 <head>
 <style>
 body {
-  background-image: url("<%= asset_path('background.png') %>");
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: #362f2f; /* Set the background color to #362f2f */
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin: 0; /* Remove default margin to avoid spacing */
 }
 
 .container {
   width: 400px; /* Adjust the width as desired */
-  background-color: black;
+  background-color: black; /* Set the background color of the form to black */
   padding: 20px;
   text-align: center;
 }
@@ -38,6 +37,7 @@ body {
 .field input[type="checkbox"] {
   width: 100%;
   padding: 5px;
+  color: white; /* Set the text color to white */
 }
 
 .actions input[type="submit"] {
@@ -87,4 +87,3 @@ body {
 </div>
 </body>
 </html>
-
