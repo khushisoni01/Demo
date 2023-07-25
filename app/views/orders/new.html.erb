@@ -96,16 +96,6 @@
 
     <%= form_with(model: @order, url: product_orders_path(@product)) do |form| %>
       <div>
-        <%= form.label :product_name %>
-        <%= form.text_field :product_name %>
-      </div>
-
-      <div>
-        <%= form.label :price %>
-        <%= form.number_field :price %>
-      </div>
-
-      <div>
         <%= form.label :address %>
         <%= form.text_field :address %>
       </div>

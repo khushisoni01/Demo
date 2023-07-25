@@ -1,20 +1,106 @@
-<h1>Edit Post</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Post</title>
+  <style>
+    /* Styles for the edit post page */
 
-<%= form_with(model: @post, local: true) do |form| %>
- 
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #4f4b4a; /* Light gray background */
+    }
 
-  <%= form.label "pictures" %>
-  <%= form.file_field :pictures, multiple: true %>
+    .edit-container {
+      max-width: 600px;
+      margin: auto;
+      background-color: #fff; /* White background */
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-  <%= form.label :tag_people %>
-  <%= form.text_field :tag_people %>
+    .edit-container h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-  <%= form.label :description %>
-  <%= form.text_area :description %>
+    .edit-form {
+      margin-top: 20px;
+    }
 
-  <%= form.submit 'Update Post' %>
-<% end %>
+    .edit-form label,
+    .edit-form input[type="text"],
+    .edit-form textarea {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
 
-<p><%= link_to 'Show', @post %></p>
-<p><%= link_to 'Back to All Posts', posts_path %></p>
-<p><%= link_to 'Back to My Account', root_path %></p>
+    .edit-form textarea {
+      resize: vertical;
+      height: 100px;
+    }
+
+    .edit-form input[type="submit"] {
+      background-color: #4f4f4f; /* Dark gray button color */
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .edit-form input[type="submit"]:hover {
+      background-color: #555; /* Darker gray color on hover */
+    }
+
+    .edit-links {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .edit-links a {
+      color: #000;
+      text-decoration: none;
+      margin-right: 20px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="edit-container">
+    <h1>Edit Post</h1>
+
+    <%= form_with(model: @post, local: true, class: 'edit-form') do |form| %>
+      <%= form.label "pictures" %>
+      <%= form.file_field :pictures, multiple: true %>
+
+      <%= form.label :tag_people %>
+      <%= form.text_field :tag_people %>
+
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+
+      <%= form.submit 'Update Post' %>
+    <% end %>
+
+    <div class="edit-links">
+      <p><%= link_to 'Show', @post %></p>
+      <p><%= link_to 'Back to All Posts', posts_path %></p>
+      <p><%= link_to 'Back to My Account', root_path %></p>
+    </div>
+  </div>
+</body>
+</html>
+

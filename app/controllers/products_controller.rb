@@ -33,6 +33,13 @@ class ProductsController < ApplicationController
   	@product = Product.find(params[:id])
   end
 
+
+  # def destroy
+  #   @product = Product.find(params[:id])
+  #   @product.destroy
+  #   redirect_to new_product_myproducts
+  # end
+
   def myproduct
     @products = current_account.products
   end
