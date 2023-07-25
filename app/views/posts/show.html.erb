@@ -1,10 +1,62 @@
-<h1><%= @post.description %></h1>
-<p><%= @post.account.name %></p>
-  <% if current_account.following?(@post.account) %>
-    <%= button_to 'Unfollow', unfollow_path(@post.account.id) %>
-  <% else %>
-    <%= button_to 'Follow', follow_path(@post.account.id) %>
-  <% end %>
-<p><%= link_to 'Edit', edit_post_path(@post) %></p>
-<p><%= link_to 'Back to All Posts', posts_path %></p>
-<p><%= link_to 'Back to My Account', root_path %></p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Post Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #4f4b4a; /* Light gray background */
+    }
+
+    .post-container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff; /* White background */
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .post-container h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .post-container p {
+      margin: 5px 0;
+    }
+
+    .follow-button,
+    .edit-button,
+    .back-button {
+      display: block;
+      width: 100%;
+      padding: 8px 16px;
+      text-align: center;
+      margin: 12px 0;
+      background-color: black; /* Black button color */
+      color: white; /* White button text color */
+      text-decoration: none;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="post-container">
+    <h1><%= @post.description %></h1>
+    <p>Username: <%= @post.account.name %></p>
+    
+    <% if current_account.following?(@post.account) %>
+      <%= button_to 'Unfollow', unfollow_path(@post.account.id), class: 'follow-button' %>
+    <% else %>
+      <%= button_to 'Follow', follow_path(@post.account.id), class: 'follow-button' %>
+    <% end %>
+    
+    <p><%= link_to 'Back to All Posts', posts_path, class: 'back-button' %></p>
+    <p><%= link_to 'Back to My Account', root_path, class: 'back-button' %></p>
+  </div>
+</body>
+</html>

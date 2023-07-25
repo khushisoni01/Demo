@@ -3,39 +3,116 @@
 <head>
 <style>
 /* Your CSS styles here */
+
+.container {
+  width: 60%;
+  margin: auto;
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.post-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.post {
+  width: calc(33.33% - 20px);
+  margin-bottom: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background-color: #f0f0f0; /* Light gray background for posts */
+}
+
+.post p {
+  margin: 5px 0;
+}
+
+.post img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.followers-container,
+.following-container {
+  margin-top: 20px;
+  text-align: left;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+ .profile {
+      display: inline-block;
+      background-color: gray ;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
 </style>
 </head>
 <body>
 <div class="container">
-  <!-- ... -->
   <h1>My Posts</h1>
-  <h2>Followers:</h2>
-  <% followers = current_account.followers %>
+  <%= link_to "Profile",edit_account_registration_path, class: "profile" %>
+  <div class="followers-container">
+    <h2>Followers:</h2>
+    <% followers = current_account.followers %>
     <% followers.each do |follower| %>
-    <p>Name: <%= follower.name %></p>
-  <% end %>
-
-  <h2>Following:</h2>
-  <% following = current_account.following %>
-    <% following.each do |followed_account| %>
-    <p>Name: <%= followed_account.name %></p>
-  <% end %>
-
-  <% @posts.each do |post| %>
-    <% if post.account.id == current_account.id %>
-      <div class="post">
-        <p>Created At: <%= post.created_at %></p>
-        <p>Updated At: <%= post.updated_at %></p>
-        <% post.pictures.each do |pic| %>
-          <%= image_tag(pic, size: "200x300") %>
-        <% end %>
-        <div class="post-buttons">
-          <%= link_to 'Edit', edit_post_path(post), class: 'button' %>
-          <%= link_to 'Delete', post_path(post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this post?' }, class: 'button' %>
-        </div>
-      </div>
+      <p>Name: <%= follower.name %></p>
     <% end %>
-  <% end %>
+  </div>
+
+  <div class="following-container">
+    <h2>Following:</h2>
+    <% following = current_account.following %>
+    <% following.each do |followed_account| %>
+      <p>Name: <%= followed_account.name %></p>
+    <% end %>
+  </div>
+
+  <div class="post-container">
+    <% @posts.each do |post| %>
+      <% if post.account.id == current_account.id %>
+        <div class="post">
+          <p>Created At: <%= post.created_at %></p>
+          <p>Updated At: <%= post.updated_at %></p>
+          <% post.pictures.each do |pic| %>
+            <%= image_tag(pic, size: "200x300") %>
+          <% end %>
+          <div class="post-buttons">
+            <%= link_to 'Edit', edit_post_path(post), class: 'button' %>
+            <%= link_to 'Delete', post_path(post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this post?' }, class: 'button' %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

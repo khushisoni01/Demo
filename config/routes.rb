@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   # get 'rooms/index'
   get 'new_product/myproducts', to: 'products#myproduct'
   resources :products do
@@ -6,9 +8,6 @@ Rails.application.routes.draw do
   end
 
   get 'orders/new', to: 'orders#new', as: :new_order
-  
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
   root 'pages#home'
   # root 'rooms#index'
 
