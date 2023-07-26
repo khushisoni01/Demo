@@ -34,11 +34,12 @@ class ProductsController < ApplicationController
   end
 
 
-  # def destroy
-  #   @product = Product.find(params[:id])
-  #   @product.destroy
-  #   redirect_to new_product_myproducts
-  # end
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to posts_path, notice: 'Product was successfully destroyed.'
+  end
+
 
   def myproduct
     @products = current_account.products
