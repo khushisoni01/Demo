@@ -83,11 +83,22 @@
     <h1>Edit Post</h1>
 
     <%= form_with(model: @post, local: true, class: 'edit-form') do |form| %>
+
+    <% if @post.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
       <%= form.label "pictures" %>
       <%= form.file_field :pictures, multiple: true %>
 
-      <%= form.label :tag_people %>
-      <%= form.text_field :tag_people %>
 
       <%= form.label :description %>
       <%= form.text_area :description %>

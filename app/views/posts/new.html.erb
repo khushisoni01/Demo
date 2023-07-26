@@ -241,6 +241,18 @@ body {
   <h1>New Post</h1>
 
   <%= form_with(model: @post, local: true) do |form| %>
+
+   <% if @post.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+    <ul>
+    <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
     <div class="field">
       <%= form.label "pictures" %>
       <%= form.file_field :pictures, multiple: true %><br>

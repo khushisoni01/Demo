@@ -1,11 +1,11 @@
  class Account < ApplicationRecord
 
-  has_many :posts
-  has_many :products
-  has_many :orders
-  has_many :messages
+  has_many :posts, dependent: :destroy
+  has_many :products, dependent: :destroy
+  has_many :orders, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  validates :name, presence: true
   
-
   followability
 
   acts_as_voter
@@ -29,28 +29,10 @@
   # after_initialize :set_default_role, if: :new_record?
 
 
-  # def set_default_role
-  # 	self.role ||= :basic_account unless self.role == "business_account" 
-  # end
-
-  # def set_default_role
-  # 	self.role ||= :business_account unless self.role == "basic_account" 
-  # end
-
-  # def set_default_role
-  # 	self.role ||= :business_account
-  # end
-
-#   def set_default_role
-#   if self.role == "basic_account"
-#   	self.role ||= :business_account
-#   else
-#   	self.role ||= :basic_account
-#   end
-# end
 
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # , :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, 
+         :confirmable
 end
