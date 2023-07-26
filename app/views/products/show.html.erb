@@ -15,13 +15,13 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      background-color: #4f4b4a; /* Light gray background */
+      background-color: #4f4b4a; 
     }
 
     .product-details-container {
       max-width: 800px;
       padding: 20px;
-      background-color: #fff; /* White background */
+      background-color: #fff; 
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
@@ -53,7 +53,7 @@
     }
 
     .back-button {
-      background-color: #4f4b4a; /* Blue button color */
+      background-color: #4f4b4a; 
       color: #fff;
       padding: 8px 16px;
       text-decoration: none;
@@ -65,13 +65,14 @@
     }
 
     .product-image {
-      max-width: 200px; /* Adjust the maximum width of the image */
-      max-height: 200px; /* Adjust the maximum height of the image */
+      max-width: 200px; 
+      max-height: 200px; 
       display: block;
-      margin: 0 auto; /* Center the image horizontally */
+      margin: 0 auto; 
     }
 
   </style>
+  <% if current_account.role == 'business_account' %>
 
   <div class="product-details-container">
     <h1><%= @product.name %></h1>
@@ -102,6 +103,6 @@
 
     <%= link_to 'Back', new_product_myproducts_path, class: 'back-button' %>
   </div>
-
+  <% end %>
 </body>
 </html>

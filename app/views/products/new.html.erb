@@ -16,13 +16,12 @@
       align-items: center;
       min-height: 100vh;
       background-color: #4f4b4a;
- /* Light gray background */
     }
 
     .form-container {
       max-width: 400px;
       padding: 20px;
-      background-color: #fff; /* White background */
+      background-color: #fff; 
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
@@ -62,14 +61,14 @@
     }
 
     form input[type="submit"] {
-      background-color: #007bff; /* Blue button color */
+      background-color: #007bff; 
       color: #fff;
       cursor: pointer;
     }
 
     .back-button {
       background-color: #4f4b4a
-; /* Blue button color */
+; 
       color: #fff;
       padding: 8px 16px;
       text-decoration: none;
@@ -80,10 +79,9 @@
       margin-top: 12px;
     }
 
-    /* Optional: Style file input to look more consistent */
     input[type="file"]::-webkit-file-upload-button {
       background-color: #4f4b4a
-; /* Blue button color */
+; 
       color: #fff;
       padding: 8px 16px;
       border: none;
@@ -91,7 +89,7 @@
       cursor: pointer;
     }
 
-    /* Optional: Hide default file input text */
+  
     input[type="file"]::-webkit-file-upload-button::before {
       content: "Select Image";
       color: #fff;
@@ -131,6 +129,6 @@
 
     <%= link_to 'Back to All Products', products_path, class: 'back-button' %>
   </div>
-
 </body>
 </html>
+

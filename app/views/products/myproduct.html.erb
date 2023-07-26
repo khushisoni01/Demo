@@ -18,9 +18,9 @@ h1 {
 }
 
 .table-container {
-  max-width: 1350px; /* Set the maximum width for the table container */
-  margin: 0 auto; /* Center align the table container */
-  border: 1px solid #ccc; /* Add a border to the table container */
+  max-width: 1350px; 
+  margin: 0 auto; 
+  border: 1px solid #ccc; 
 }
 
 
@@ -71,10 +71,11 @@ h1 {
 
   </style>
 <body>
+  <% if current_account.role == 'business_account' %>
   <div class="table-container">
-  <h1>Products</h1> <!-- Displaying Product List heading -->
+  <h1>Products</h1> 
 
-  <%= link_to 'New', new_product_path, class: 'button' %> <!-- Adding 'New' button -->
+  <%= link_to 'New', new_product_path, class: 'button' %> 
 
   <table class="product-table">
     <thead>
@@ -111,7 +112,7 @@ h1 {
     </tbody>
   </table>
 </div>
-
+<% end %>
 </body>
 </html>
 

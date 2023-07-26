@@ -3,8 +3,6 @@
 <head>
   <title>Products</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -12,10 +10,9 @@
       margin: 0;
       padding: 0;
       display: flex;
-     /* justify-content: center;*/
       align-items: center;
       min-height: 100vh;
-      background-color: #f2f2f2; /* Light gray background */
+      background-color: #f2f2f2; 
     }
 
     .product-table {
@@ -23,7 +20,7 @@
       max-width: 1300px;
       justify-content: center;
       padding: 20px;
-      background-color: #fff; /* White background */
+      background-color: #fff; 
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
@@ -47,16 +44,16 @@
     }
 
     .product-table th {
-      background-color: #333; /* Dark gray background for table header */
-      color: #fff; /* White text color for table header */
+      background-color: #333; 
+      color: #fff; 
     }
 
     .product-table tr:hover {
-      background-color: #f0f0f0; /* Light gray background on hover */
+      background-color: #f0f0f0; 
     }
 
     .buy-product-link {
-      background-color: #4f4b4a; /* Blue button color */
+      background-color: #4f4b4a; 
       color: #fff;
       padding: 8px 16px;
       text-decoration: none;
@@ -64,12 +61,14 @@
     }
 
     .product-image {
-      max-width: 100px; /* Adjust the maximum width of the image */
-      max-height: 100px; /* Adjust the maximum height of the image */
+      max-width: 100px; 
+      max-height: 100px; 
     }
 
   </style>
-
+</head>
+<body>
+  <% if current_account.role == 'basic_account' %>
   <div class="product-table">
     <h1>Products</h1>
 
@@ -103,8 +102,38 @@
         <% end %>
       </tbody>
     </table>
-
   </div>
-
+  <% end %>
+  <%= paginate @products %>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
