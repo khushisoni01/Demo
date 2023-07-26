@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
       OrderConfirmationMailer.seller_confirmation(@order).deliver_now
       redirect_to product_order_path(@product.id, @order.id)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
