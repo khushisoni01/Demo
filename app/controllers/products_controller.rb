@@ -13,8 +13,10 @@ class ProductsController < ApplicationController
   end
 
   def index
-  	@products = Product.all
+  	# @products = Product.all
+    @products = Product.page(params[:page]).per(5)
   end
+
 
   def edit
   	@product = Product.find(params[:id])
