@@ -1,3 +1,4 @@
+<% if account_signed_in? %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -100,6 +101,7 @@ body {
 <div class="navbar">
   <% if current_account.business_account? %>
     <%= link_to 'Add Product', new_product_myproducts_url, class: 'button button-small' %>
+    <%= link_to 'All Orders',all_orders_path, class: 'button button-small' %>
   <% else %>
     <%= link_to 'Buy Product', products_path, class: 'button button-small' %>
   <% end %>
@@ -116,7 +118,7 @@ body {
       <div class="post">
         <p>Username: <%= post.account.name %></p>
         <p>Likes: <%= post.get_likes.size %></p>
-        <% if current_account.voted_down_on?(post) %>
+        <% if !current_account.voted_down_on?(post) %>
           <%= button_to 'Like', like_path(post) %>
         <% else %>
         <%= button_to 'Disike', dislike_path(post) %>
@@ -132,3 +134,6 @@ body {
 </div>
 </body>
 </html>
+<% else %>
+  <p>Please sign in to view this page.</p>
+<% end %>

@@ -11,8 +11,8 @@ class OrdersController < ApplicationController
     # @account = @product.account_id
     @order = Order.new(order_params.merge(product_id: @product.id, account_id: current_account.id))
     if @order.save
-      OrderConfirmationMailer.buyer_confirmation(@order).deliver_now
-      OrderConfirmationMailer.seller_confirmation(@order).deliver_now
+      # OrderConfirmationMailer.buyer_confirmation(@order).deliver_now
+      # OrderConfirmationMailer.seller_confirmation(@order).deliver_now
       redirect_to product_order_path(@product.id, @order.id)
     else
       render :new, status: :unprocessable_entity
@@ -20,8 +20,20 @@ class OrdersController < ApplicationController
   end
 
   def index
-  	@orders = Order.all
+    @orders = current_account.orders
   end
+
+  def all_orders
+    @orders = Order.all
+  end
+
+  def edit_orders
+    @order = Order.find(params[:id])
+    @order.update(confirm: true)
+    OrderConfirmationMailer.buyer_confirmation(@order).deliver_now
+    OrderConfirmationMailer.seller_confirmation(@order).deliver_now 
+  end
+
 
   def show
   	@order = Order.find(params[:id])
