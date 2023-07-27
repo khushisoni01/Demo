@@ -119,9 +119,9 @@ body {
         <p>Username: <%= post.account.name %></p>
         <p>Likes: <%= post.get_likes.size %></p>
         <% if !current_account.voted_down_on?(post) %>
-          <%= button_to 'Like', like_path(post) %>
+         <%= button_to 'Disike', dislike_path(post) %>
         <% else %>
-        <%= button_to 'Disike', dislike_path(post) %>
+        <%= button_to 'Like', like_path(post) %>
         <% end %>
 
         <% post.pictures.each do |pics| %>
