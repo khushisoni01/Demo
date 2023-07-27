@@ -1,0 +1,53 @@
+<h2><center>Confirmed Orders</center></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Order ID</th>
+      <th>Product</th>
+      <th>Address</th>
+      <th>Account ID</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+    <% if current_account.id == order.product.account_id && order.confirm == true %>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= order.product.name %></td>
+        <td><%= order.address %></td>
+        <td><%= order.account_id %></td>
+        <td><p>Confirmed</p></td>
+      </tr>
+      <% end %>
+      <% end %>
+  </tbody>
+</table>
+
+<h2><center>Pending Orders</center></h2>
+<table>
+  <thead>
+    <tr>
+      <th>Order ID</th>
+      <th>Product</th>
+      <th>Address</th>
+      <th>Account ID</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <% if current_account.id == order.product.account_id && order.confirm == false %>
+        <td><%= order.id %></td>
+        <td><%= order.product.name %></td>
+        <td><%= order.address %></td>
+        <td><%= order.account_id %></td>
+        <td><%= link_to 'Confirm', edit_orders_url(order) %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
