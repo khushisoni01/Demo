@@ -8,26 +8,11 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  # def create
-  #   @post = current_account.posts.build(post_params)
-  #    if @post.image.present?
-  #     image_path(post.image)
-  #   end
 
-  #   if @post.save
-  #     redirect_to @post, notice: 'Post was successfully created.'
-  #   else
-  #     render :new
-  #   end
-  # end
 
 
   def create
     @post = current_account.posts.build(post_params)
-    
-    # if @post.image.present?
-    #   @post.image_path = image_path(@post.image)
-    # end
     
     if @post.save
       redirect_to @post, notice: 'Post was successfully created.'
@@ -45,7 +30,6 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
   end
-
 
   def mypost
     @posts = current_account.posts
@@ -91,8 +75,6 @@ class PostsController < ApplicationController
     end
 
   end
-
-
 
 
   private

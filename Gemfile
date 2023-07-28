@@ -7,6 +7,8 @@ gem "sassc"
 gem 'acts_as_votable'
 gem 'kaminari'
 
+
+
 gem 'followability', github: 'nejdetkadir/followability', branch: 'main'
 
 gem 'byebug'
@@ -60,6 +62,7 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'rspec-rails', '~> 6.0.0'
 end
 
 group :development do
@@ -78,6 +81,10 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'shoulda-matchers', require: false
+  gem 'faker'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 # gem "cancancan", "~> 3.5"
