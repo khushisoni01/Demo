@@ -73,12 +73,12 @@ class PostsController < ApplicationController
       @post.downvote_by current_account
         redirect_to posts_path
     end
-
   end
+
+  
 
 
   private
-
   def post_params
     params.require(:post).permit(:description, :image, pictures: [])
   end
