@@ -8,7 +8,9 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-
+  def all_order
+    @orders = Order.all
+  end
 
 
   def create

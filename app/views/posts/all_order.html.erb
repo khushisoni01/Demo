@@ -1,0 +1,49 @@
+<h2><center>All Confirmed Orders By Seller</center></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Order ID</th>
+      <th>Product</th>
+      <th>Address</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+    <% if current_account.id == order.account_id && order.confirm == true %>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= order.product.name %></td>
+        <td><%= order.address %></td>
+        <td><p>Confirmed</p></td>
+      </tr>
+      <% end %>
+      <% end %>
+  </tbody>
+</table>
+
+<h2><center>All Pending Orders By Seller</center></h2>
+<table>
+  <thead>
+    <tr>
+      <th>Order ID</th>
+      <th>Product</th>
+      <th>Address</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+     <% if current_account.id == order.account_id && order.confirm == false %>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= order.product.name %></td>
+        <td><%= order.address %></td>
+        <td><p>Pending</p></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+

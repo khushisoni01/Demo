@@ -34,5 +34,6 @@ Rails.application.routes.draw do
   get 'new_post/myposts', to: 'posts#mypost'
   post 'posts/:id/upvote', to: "posts#upvote", as: "like"
   post 'posts/:id/downvote', to: "posts#downvote", as: "dislike"
+  get 'all_order', to: "posts#all_order", as: :all_order
   resources :posts
 end

@@ -83,8 +83,6 @@
     <% @posts.each do |post| %>
       <% if post.account.id == current_account.id %>
         <div class="post">
-          <p>Created At: <%= post.created_at %></p>
-          <p>Updated At: <%= post.updated_at %></p>
           <% post.pictures.each do |pic| %>
             <%= image_tag(pic, size: "200x300") %>
           <% end %>
