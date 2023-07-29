@@ -60,8 +60,28 @@ RSpec.describe "Posts", type: :request do
     end
   end
 
-  
+  # describe "PUT /posts/:id" do 
+  #   it "update a specific post" do 
+  #     account = Account.create(name: 'Khushi', email: 'khushi@gmail.com', password: '123456', role: 'basic_account')
+  #     post = Post.create(description: "Hello world", account_id: account.id)
+  #     put post_path(id:post.id, description: "Hello")
+  #     expect(response).to have_http_status(200)
+  #   end
+  # end 
+
+  describe "PUT /posts/:id" do
+    it "updates a specific post" do 
+      account = Account.create(name: 'Khushi', email: 'khushi@gmail.com', password: '123456', role: 'basic_account')
+      post = Post.create(description: "Hello world", account_id: account.id)
+      updated_description = "Updated post description"
+      put post_path(id: post.id, post: { description: updated_description })
+      expect(response).to have_http_status(302)
+      post.reload
+      expect(post.description).to eq(updated_description)
+    end
+  end
 end
+ 
 
 
 

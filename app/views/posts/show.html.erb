@@ -47,8 +47,7 @@
 </head>
 <body>
   <div class="post-container">
-    <h1><%= @post.description %></h1>
-    <p>Username: <%= @post.account.name %></p>
+    <h1>Username: <%= @post.account.name %></h1>
     
     <% if current_account.following?(@post.account) %>
       <%= button_to 'Unfollow', unfollow_path(@post.account.id), class: 'follow-button' %>
