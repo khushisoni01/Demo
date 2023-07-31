@@ -1,5 +1,6 @@
+<% if account_signed_in? %>
+<% if current_account.role == 'business_account' %>
 <h2><center>Confirmed Orders</center></h2>
-
 <table>
   <thead>
     <tr>
@@ -50,4 +51,6 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
+<% end %>
 
