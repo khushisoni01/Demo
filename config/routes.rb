@@ -36,4 +36,8 @@ Rails.application.routes.draw do
   post 'posts/:id/downvote', to: "posts#downvote", as: "dislike"
   get 'all_order', to: "posts#all_order", as: :all_order
   resources :posts
+
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 end
