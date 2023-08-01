@@ -6,6 +6,9 @@ gem "activeadmin"
 gem "sassc"
 gem 'acts_as_votable'
 gem 'kaminari'
+# # gem 'sidekiq'
+# gem 'sidekiq', '~> 5.0', '>= 5.0.4'
+gem 'sidekiq', '~> 5.2.9'
 
 
 
@@ -40,6 +43,8 @@ gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
+# gem 'redis', '~> 3.3', '>= 3.3.3'
+
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"

@@ -12,4 +12,12 @@ class OrderConfirmationMailer < ApplicationMailer
     	@seller_email = order.product.account.email 
     	mail(to: @seller_email, subject: 'Order Confirmation')
 	end
+
+
+	def sidekiq(email)
+	    @buyer_email = email
+	    mail(to: @buyer_email, subject: 'Order Confirmation')
+	end
 end
+
+
