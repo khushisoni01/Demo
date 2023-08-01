@@ -13,8 +13,12 @@ class ProductsController < ApplicationController
   end
 
   def index
-  	# @products = Product.all
-    @products = Product.page(params[:page]).per(5)
+    if params[:search].present?
+      @products = Product.where("description LIKE ?", "%#{params[:search]}%")
+    else
+      @products = Product.all
+    end
+    @products = @products.page(params[:page]).per(5)
   end
 
 

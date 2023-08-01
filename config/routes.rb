@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :orders
   end
 
+  
+
   get 'orders/new', to: 'orders#new', as: :new_order
   get 'all_orders', to: 'orders#all_orders', as: :all_orders
   get 'edit_orders/:id', to: 'orders#edit_orders', as: :edit_orders
