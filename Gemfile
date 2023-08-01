@@ -10,6 +10,10 @@ gem 'kaminari'
 # gem 'sidekiq', '~> 5.0', '>= 5.0.4'
 gem 'sidekiq', '~> 5.2.9'
 
+gem 'rubocop-rails', require: false
+
+
+
 
 
 gem 'followability', github: 'nejdetkadir/followability', branch: 'main'
