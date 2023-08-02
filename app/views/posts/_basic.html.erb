@@ -100,9 +100,13 @@ body {
 <body>
 <div class="navbar">
   <% if current_account.business_account? %>
+   <%= link_to 'News', news_index_path, class: 'button button-small' %>
+
     <%= link_to 'Add Product', new_product_myproducts_url, class: 'button button-small' %>
     <%= link_to 'All Orders',all_orders_path, class: 'button button-small' %>
   <% else %>
+  <%= link_to 'News', news_index_path, class: 'button button-small' %>
+
     <%= link_to 'Buy Product', products_path, class: 'button button-small' %>
     <%= link_to 'All Orders',all_order_path, class: 'button button-small' %>
   <% end %>

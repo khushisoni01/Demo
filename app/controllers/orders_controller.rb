@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
 
   def create
     @product = Product.find(params[:product_id])
-    @order = Order.new(order_params.merge(product_id: @product.id, account_id: current_account.id))
+    @order = Order.new(order_params.merge(product_id: @product.id, account_id: current_account.id, price: @product.price))
     if @order.save
       # MyBackgroundJob.new.perform
       MyBackgroundJob.new.perform(current_account.id)
@@ -45,7 +45,7 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:address,:account_id, :product_id)
+    params.require(:order).permit(:address,:account_id, :product_id, :price)
   end
 
   def time_until_midnight

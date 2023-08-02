@@ -1,5 +1,6 @@
 <div class="row">
   <div class="col-md-2">
+    <%= link_to 'Back', posts_path, class: 'button button-small' %>
     <h5> Hi <%= @current_account.name %> </h5>
     <h4> Rooms </h4>
     <%= render partial: "layouts/new_room_form" %>

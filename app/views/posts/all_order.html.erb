@@ -1,5 +1,7 @@
 <% if account_signed_in? %>
 <% if current_account.role == 'basic_account' %>
+  <%= link_to 'Back', posts_path, class: 'button button-small' %>
+
 <h2><center>All Confirmed Orders By Seller</center></h2>
 
 <table>

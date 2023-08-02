@@ -62,7 +62,8 @@
 <body>
 <div class="container">
   <h1>My Posts</h1>
-  <%= link_to "Edit Profile",edit_account_registration_path, class: "profile" %>
+  <%= link_to "Edit Profile",edit_account_registration_path, class: "button button-small" %>
+  <%= link_to 'Back', posts_path, class: 'button button-small' %>
   <div class="followers-container">
     <h2>Followers:</h2>
     <% followers = current_account.followers %>

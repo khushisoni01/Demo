@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'news/index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # get 'rooms/index'
@@ -15,6 +16,8 @@ Rails.application.routes.draw do
 
   root 'pages#home'
   # root 'rooms#index'
+  get 'news/index'
+  
 
   
   # get "account/:id", to: "registrations#show", as: "account"

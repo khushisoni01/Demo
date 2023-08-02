@@ -48,7 +48,8 @@
 <body>
   <div class="post-container">
     <h1>Username: <%= @post.account.name %></h1>
-    
+    <%= link_to 'Back', posts_path, class: 'button button-small' %>
+
     <% if current_account.following?(@post.account) %>
       <%= button_to 'Unfollow', unfollow_path(@post.account.id), class: 'follow-button' %>
     <% else %>
