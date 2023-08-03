@@ -83,8 +83,8 @@ Rails.application.configure do
   address: 'smtp.mailtrap.io',
   port: 587,
   domain: 'localhost',
-  user_name: '8b01e3ac4bb13a',
-  password: '96230e53995bbc',
+  user_name: 'c112392da3b711',
+  password: '20bcd7e03f0178',
   authentication: :cram_md5
 }
 end
