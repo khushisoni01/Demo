@@ -5,6 +5,8 @@
   has_many :orders, dependent: :destroy
   has_many :messages, dependent: :destroy
   validates :name, presence: true
+  has_many :participants, dependent: :destroy
+
 
   
   followability
@@ -26,6 +28,7 @@
   def unfollow(account)
     followerable_relationships.where(followable_id: account.id).destroy_all
   end
+
 
   # after_initialize :set_default_role, if: :new_record?
 

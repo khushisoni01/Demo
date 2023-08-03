@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   # root 'rooms#index'
   get 'news/index'
-  
+  # get 'accounts/:id', to: 'accounts#show', as: 'accounts'
 
   
   # get "account/:id", to: "registrations#show", as: "account"
@@ -33,7 +33,8 @@ Rails.application.routes.draw do
     post 'accounts/:id/unfollow', to: "registrations#unfollow", as: "unfollow"
     post 'accounts/:id/accept', to: "registrations#accept", as: "accept"
     post 'accounts/:id/cancel', to: "registrations#cancel", as: "cancel"
-    get 'accounts/:id', to: 'registrations#show', as: 'account'
+    # get 'accounts/:id', to: 'registrations#show', as: 'account'
+
   end
   
   get 'new_post/myposts', to: 'posts#mypost'
@@ -41,6 +42,8 @@ Rails.application.routes.draw do
   post 'posts/:id/downvote', to: "posts#downvote", as: "dislike"
   get 'all_order', to: "posts#all_order", as: :all_order
   resources :posts
+
+  get 'accounts/:id', to: 'accounts#show', as: 'user_accounts'
 
 
   require 'sidekiq/web'

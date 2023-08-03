@@ -1,6 +1,11 @@
 <div class="row">
   <div class="col-md-2">
     <%= link_to 'Back', posts_path, class: 'button button-small' %>
+    <h4> Users </h4>
+    <%= turbo_stream_from "accounts" %>
+  <div id="accounts">
+    <%= render @accounts %>
+  </div>
     <h5> Hi <%= @current_account.name %> </h5>
     <h4> Rooms </h4>
     <%= render partial: "layouts/new_room_form" %>
@@ -11,16 +16,14 @@
       </div>
     </div>
   </div>
-  <div class="col-md-10 bg-dark text-light">
+    <div class="col-md-10 bg-dark text-light">
   <% if @single_room %>
-
-  <%= turbo_stream_from @single_room %>
-<div id="messages">
-   <%= render @messages %>
-</div>
-<%= render partial: 'layouts/new_message_form' %>
-
-    <h4 class="text-center"> <%= @single_room.name %> </h4>
+    <h4 class="text-center"><%= @account&.name || @single_room.name %></h4>
+    <%= turbo_stream_from @single_room %>
+    <div id="messages">
+      <%= render @messages %>
+      <%= render partial: 'layouts/new_message_form' %>
+    </div>
   <% end %>
 </div>
 </div>
