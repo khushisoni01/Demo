@@ -123,7 +123,7 @@ body {
       <div class="post">
         <p>Username: <%= post.account.name %></p>
         <p>Likes: <%= post.get_likes.size %></p>
-        <% if !current_account.voted_down_on?(post) %>
+        <% if current_account.liked? (post) %>
          <%= button_to 'Disike', dislike_path(post) %>
         <% else %>
         <%= button_to 'Like', like_path(post) %>
